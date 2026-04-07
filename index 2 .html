@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joaquim Guerra Martins - Desenvolvedor Front-End</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --h1-color: #58a6ff;
+            --text-secondary: #79c0ff;
+            --button-color: #a371f7;
+            --text-primary: #e6edf3;
+            --border: rgba(88, 166, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            background-color: rgba(13, 17, 23, 0.95);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--h1-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--h1-color);
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--h1-color);
+            font-size: 3rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            margin-bottom: 24px;
+        }
+
+        .hero .description {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button, .btn {
+            background-color: var(--button-color);
+            color: #ffffff;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        button:hover, .btn:hover {
+            background-color: var(--h1-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(88, 166, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--h1-color);
+            color: var(--h1-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(88, 166, 255, 0.1);
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .about h2 {
+            color: var(--h1-color);
+            font-size: 2rem;
+            margin-bottom: 32px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .about-text strong {
+            color: var(--text-secondary);
+        }
+
+        /* SKILLS SECTION */
+        .skills {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .skills h2 {
+            color: var(--h1-color);
+            font-size: 2rem;
+            margin-bottom: 32px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .skill-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--h1-color);
+            box-shadow: 0 8px 32px rgba(88, 166, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .skill-card h3 {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        /* EDUCATION SECTION */
+        .education {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .education h2 {
+            color: var(--h1-color);
+            font-size: 2rem;
+            margin-bottom: 32px;
+        }
+
+        .education-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--h1-color);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .education-item h3 {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .education-item .institution {
+            color: var(--h1-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .education-item .date {
+            color: #79c0ff;
+            font-size: 0.9rem;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: var(--h1-color);
+            font-size: 2rem;
+            margin-bottom: 32px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--h1-color);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: rgba(13, 17, 23, 0.95);
+            border-top: 1px solid var(--border);
+            padding: 32px 0;
+            text-align: center;
+            color: #79c0ff;
+            margin-top: 10px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                gap: 16px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            button, .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>Joaquim Guerra Martins</h1>
+            <p class="subtitle">Desenvolvedor Front-End | Estudante de Ciência da Computação</p>
+            <p class="description">
+                Estudante apaixonado por tecnologia e desenvolvimento web. Com formação internacional e fluência em inglês, busco criar soluções inovadoras através de código limpo e design responsivo.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contato" class="btn">Entrar em Contato</a>
+                <a href="#sobre" class="btn btn-secondary">Saiba Mais</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="sobre">
+        <div class="container">
+            <h2>Sobre Mim</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Sou <strong>Joaquim Guerra Martins</strong>, estudante de Ciência da Computação na UNIESP, em João Pessoa (PB), com uma trajetória educacional única que começou nos Estados Unidos.
+                    </p>
+                    <p>
+                        Minha formação internacional me proporcionou <strong>fluência em inglês</strong>, <strong>visão global</strong> e <strong>adaptação multicultural</strong>. Essas experiências moldaram minha capacidade de aprender rapidamente e colaborar em ambientes diversos.
+                    </p>
+                    <p>
+                        Atualmente, direciono meus estudos para <strong>tecnologia, inovação e desenvolvimento computacional</strong>, com foco em <strong>Front-End</strong> e boas práticas de desenvolvimento web.
+                    </p>
+                    <p>
+                        Sou <strong>autodidata</strong>, busco constantemente aprender novas tecnologias e aplicá-las em projetos práticos que gerem impacto real.
+                    </p>
+                </div>
+                <div class="about-highlights">
+                    <div class="skill-card">
+                        <h3>🌍 Formação Internacional</h3>
+                        <p>Alfabetizado e educado nos EUA, com fluência em inglês e visão global.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>💻 Desenvolvimento Web</h3>
+                        <p>Iniciante em Front-End, com foco em HTML, CSS e JavaScript.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>🚀 Aprendizado Contínuo</h3>
+                        <p>Autodidata, sempre buscando dominar novas tecnologias e frameworks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2>Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>HTML5</h3>
+                    <p>Estrutura semântica, acessibilidade e boas práticas de marcação.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>CSS3</h3>
+                    <p>Layouts responsivos, Flexbox, Grid e animações.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>JavaScript</h3>
+                    <p>Lógica de programação, DOM manipulation e interatividade.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Acessibilidade Web</h3>
+                    <p>Desenvolvimento de sites utilizáveis por mais pessoas.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Inglês Fluente</h3>
+                    <p>Comunicação profissional, documentação técnica e colaboração internacional.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Trabalho em Equipe</h3>
+                    <p>Comunicação clara, colaboração e capacidade de aprender rapidamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="education" id="educacao">
+        <div class="container">
+            <h2>Formação Acadêmica</h2>
+            
+            <div class="education-item">
+                <h3>Bacharel em Ciência da Computação</h3>
+                <div class="institution">UNIESP Centro Universitário</div>
+                <div class="date">Fevereiro 2026 - Fevereiro 2030</div>
+                <p>Cursando com foco em desenvolvimento web, programação e inovação tecnológica.</p>
+            </div>
+
+            <div class="education-item">
+                <h3>Ensino Médio</h3>
+                <div class="institution">Olympia High School</div>
+                <div class="date">Maio 2016 - Fevereiro 2020</div>
+                <p>Formação completa com ênfase em habilidades computacionais básicas.</p>
+            </div>
+
+            <div class="education-item">
+                <h3>Ensino Fundamental</h3>
+                <div class="institution">Colégio Motiva + Olympia High School (EUA)</div>
+                <div class="date">2016 - 2020</div>
+                <p>Formação internacional com alfabetização e educação nos Estados Unidos.</p>
+            </div>
+
+            <div class="education-item">
+                <h3>Certificação</h3>
+                <div class="institution">UNIESP SUMMIT 2026 - Carreiras e Profissões</div>
+                <div class="date">2026</div>
+                <p>Participação em evento de desenvolvimento profissional e networking.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contato">
+        <div class="container">
+            <h2>Vamos Conversar?</h2>
+            <p style="margin-bottom: 32px; font-size: 1.1rem;">
+                Estou aberto a oportunidades, colaborações e novos desafios. Entre em contato!
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <a href="mailto:joaquimguerramartins6@gmail.com">joaquimguerramartins6@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>LinkedIn</strong>
+                    <a href="https://www.linkedin.com/in/joaquimguerra-martins-70404a3b3" target="_blank">Meu Perfil</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Localização</strong>
+                    <p>João Pessoa, Paraíba - Brasil</p>
+                </div>
+            </div>
+           
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Joaquim Guerra Martins. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
